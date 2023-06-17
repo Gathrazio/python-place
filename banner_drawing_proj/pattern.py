@@ -9,6 +9,7 @@ import numpy as np
 tr = turtle.Turtle()  # creating the turtle object
 
 tr.hideturtle() # hide the turtle
+tr.width(4)
 
 # defining the setup function, which determines the dimensions of the window, the speed of turtle, and keeps turtle
 # from drawing
@@ -75,6 +76,7 @@ def drawRectangleMulticolorPattern(startX, startY, offset, width, height, count,
 
 # defining the drawRectanglePattern() function. This will draw the rectangle pattern.
 def drawRectanglePattern(startX, startY, offset, color, width, height, count, rotation):
+    tr.width(3)
     # the parameters it takes are the position of the center of the pattern, the dimensions of the rectangles to be
     # drawn, the number of rectangles to be drawn in 360 degrees, and the rotation of each rectangle.
 
@@ -113,12 +115,14 @@ def drawRectanglePattern(startX, startY, offset, color, width, height, count, ro
 # defining the drawRectangle() function, which draws a single rectangle
 def drawRectangle(height, width): # takes height and width parameters for the rectangle
     tr.pendown()
+    tr.begin_fill()
     for i in range(0, 4): # will iterate four times, twice will i % 2 be 1 and twice will i % 2 be 0.
         if i % 2 == 0:
             tr.forward(height) # first, turtle draws forward a distance of height
         else:
             tr.forward(width)
         tr.left(90) # turns left after each distance decision (sans the last iteration, when i = 3
+    tr.end_fill()
 
 def encapsule_rect_pattern(x, y, height, width, color):
     tr.color(color)
@@ -167,7 +171,7 @@ def drawCirclePattern(startX, startY, offset, radius, count, color, extent, step
 
     # this for-loop draws the pattern. It will iterate 'count' times
     if draw_direction == "cclockwise":
-        for i in range(0, np.int(np.floor(count * (extent / 360))) + 1):
+        for i in range(0, int(np.floor(count * (extent / 360))) + 1):
             tr.goto(startX, startY) # telling turtle to go the the pattern origin after every time a circle is drawn
             tr.setheading(pattern_start_ang + i * spacing) # turtle will orient itself at the center of the pattern in a unique line
             if offset < 0: # the case when offset is negative
@@ -179,7 +183,7 @@ def drawCirclePattern(startX, startY, offset, radius, count, color, extent, step
             drawCircle(radius, None, steps) # calling drawCircle() to draw the circle with radius 'radius'
             tr.penup() # turtle should stop drawing, ready to move back to the center and be oriented for another circle
     else:
-        for i in range(0, np.int(np.floor(count * (extent / 360))) + 1):
+        for i in range(0, int(np.floor(count * (extent / 360))) + 1):
             tr.goto(startX, startY) # telling turtle to go the the pattern origin after every time a circle is drawn
             tr.setheading(pattern_start_ang - i * spacing) # turtle will orient itself at the center of the pattern in a unique line
             if offset < 0: # the case when offset is negative

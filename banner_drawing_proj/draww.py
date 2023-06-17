@@ -12,7 +12,7 @@ def yt_Logo(scale, x_loc, y_loc):
     w_width, w_height = 2048, 1152  # turtle window width and height
     offset = 12.53
     radius = 7.5
-    count = 38
+    count = 15
     color = "blue"
     starting_ang = 0
     rotation = 0
@@ -46,11 +46,11 @@ def yt_Logo(scale, x_loc, y_loc):
     pa.drawCirclePattern(x_loc + 2 * (nradius + noffset), y_loc, noffset, nradius, ncount, color, extent, None, rotation, 90, "")
 
 
-    pa.drawRectanglePattern(x_loc, y_loc, nstar_offset, "teal", nwidth, nheight, np.int(ncount / 3), rotation)
-    pa.drawRectanglePattern(x_loc + 2 * (nradius + noffset), y_loc, nstar_offset, "crimson", nwidth, nheight, np.int(ncount / 3), rotation)
-    pa.drawRectanglePattern(x_loc, y_loc - 2 * (nradius + noffset), nstar_offset, "goldenrod", nwidth, nheight, np.int(ncount / 3), rotation)
-    pa.drawRectanglePattern(x_loc, y_loc + 2 * (nradius + noffset), nstar_offset, "dim gray", nwidth, nheight, np.int(ncount / 3), rotation)
-    pa.drawRectanglePattern(x_loc - 2 * (nradius + noffset), y_loc, nstar_offset, "deep sky blue", nwidth, nheight, np.int(ncount / 3), rotation)
+    pa.drawRectanglePattern(x_loc, y_loc, nstar_offset, "teal", nwidth, nheight, int(ncount / 3), rotation)
+    pa.drawRectanglePattern(x_loc + 2 * (nradius + noffset), y_loc, nstar_offset, "crimson", nwidth, nheight, int(ncount / 3), rotation)
+    pa.drawRectanglePattern(x_loc, y_loc - 2 * (nradius + noffset), nstar_offset, "goldenrod", nwidth, nheight, int(ncount / 3), rotation)
+    pa.drawRectanglePattern(x_loc, y_loc + 2 * (nradius + noffset), nstar_offset, "dim gray", nwidth, nheight, int(ncount / 3), rotation)
+    pa.drawRectanglePattern(x_loc - 2 * (nradius + noffset), y_loc, nstar_offset, "deep sky blue", nwidth, nheight, int(ncount / 3), rotation)
     pa.done()
 
 
@@ -86,10 +86,4 @@ def main():
     if response == "Y":
         quit()
 
-yt_Logo(4, 0, 80)
-
-
-
-
-
-
+yt_Logo(8, 0, 80)
