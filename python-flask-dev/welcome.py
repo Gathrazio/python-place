@@ -8,16 +8,9 @@ this module is a practice python module
 # use four spaces for indentation
 # use functions for blocks of code
 
-def add(number1, number2):
-    '''
-    adds numbers
-    '''
-    return number1 + number2
+from mypackage.module1 import square, doubler
+from mypackage.module2 import mean
 
-NUM1 = 4
-
-NUM2 = 5
-
-TOTAL = add(NUM1, NUM2)
-
-print(f"The sum of {NUM1} and {NUM2} is {TOTAL}")
+print("4^2 =", square(4))
+print("2 * 4 =", doubler(4))
+print("(2 + 1 + 3) / 3 =", mean([2, 1, 3]))
